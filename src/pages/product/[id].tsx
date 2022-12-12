@@ -45,11 +45,11 @@ export default function Product({ product }: ProductProps) {
         }
     }
 
-    const { isFallback } = useRouter()
+    // const { isFallback } = useRouter()
 
-    if (isFallback) {
-        return <p>Loading. . .</p>
-    }
+    // if (isFallback) {
+    //     return <p>Loading. . .</p>
+    // }
 
     return (
         <>
@@ -85,7 +85,7 @@ export default function Product({ product }: ProductProps) {
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: [{ params: { id: '' } }],
-        fallback: true,
+        fallback: false,
     }
 }
 
