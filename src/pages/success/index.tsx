@@ -16,6 +16,11 @@ interface SuccessProps {
 }
 
 export default function Success({ customerName, lineItems }: SuccessProps) {
+    const amountItems = lineItems.reduce(
+        (acc, lineItem) => acc + (lineItem.quantity ? lineItem.quantity : 0),
+        0,
+    )
+
     return (
         <>
             <Head>
@@ -45,7 +50,7 @@ export default function Success({ customerName, lineItems }: SuccessProps) {
 
                 <p>
                     Uhuul <strong>{customerName}</strong>, sua sua compra de{' '}
-                    {lineItems.length} camisetas já está a caminho da sua casa.
+                    {amountItems} camisetas já está a caminho da sua casa.
                 </p>
 
                 <Link href="/">Voltar ao catálogo</Link>
