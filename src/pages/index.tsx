@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 import { stripe } from '../lib/stripe'
 import { FooterContainer, HomeContainer, Product } from '../styles/pages/home'
 import { useKeenSlider } from 'keen-slider/react'
 
 import 'keen-slider/keen-slider.min.css'
-import { GetStaticProps } from 'next'
+import { useMediaQuery } from 'react-responsive'
 
 import { Stripe } from 'stripe'
 
@@ -25,10 +26,11 @@ interface HomeProps {
 
 export default function Home({ products }: HomeProps) {
     const { addItem } = useShoppingCart()
+    const isMobileScreen = useMediaQuery({ query: '(max-width: 768px)' })
 
     const [sliderRef] = useKeenSlider({
         slides: {
-            perView: 3,
+            perView: isMobileScreen ? 1 : 3,
             spacing: 48,
         },
     })

@@ -20,6 +20,8 @@ export const Header = styled('header', {
     alignItems: 'center',
 
     button: {
+        border: 'none',
+
         backgroundColor: '$gray800',
         padding: '0.75rem',
         borderRadius: 6,
@@ -64,6 +66,8 @@ export const DrawerCart = styled(Drawer, {
 })
 
 export const ButtonCloseDrawer = styled('button', {
+    border: 'none',
+
     background: 'transparent',
     color: '$gray300',
 
@@ -186,6 +190,10 @@ export const FooterContainer = styled('footer', {
     marginTop: '1.5rem',
 
     button: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+
         border: 0,
         borderRadius: 8,
 

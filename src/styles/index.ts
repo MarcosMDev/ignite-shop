@@ -29,4 +29,13 @@ export const {
             '2xl': '2rem',
         },
     },
+    media: {
+        'min-sm': '(min-width: 640px)',
+        'min-md': '(min-width: 768px)',
+        'min-lg': '(min-width: 1024px)',
+
+        'max-sm': '(max-width: 640px)',
+        'max-md': '(max-width: 768px)',
+        'max-lg': '(max-width: 1024px)',
+    } as const,
 })

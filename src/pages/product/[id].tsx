@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import Stripe from 'stripe'
 import { stripe } from '../../lib/stripe'
 import {
@@ -24,6 +25,8 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
+    const isMobileScreen = useMediaQuery({ query: '(max-width: 640px)' })
+
     const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
         useState(false)
 
@@ -60,7 +63,7 @@ export default function Product({ product }: ProductProps) {
                 <ImageContainer>
                     <Image
                         src={product.imageUrl}
-                        width={520}
+                        width={isMobileScreen ? 300 : 520}
                         height={480}
                         alt=""
                     />

@@ -9,11 +9,17 @@ export const ProductContainer = styled('main', {
     maxWidth: 1180,
     margin: '0 auto',
     marginBottom: '1rem',
+    overflow: 'hidden',
+
+    '@max-md': {
+        gridTemplateColumns: '1fr',
+
+        padding: '0 1rem',
+    },
 })
 
 export const ImageContainer = styled('div', {
-    width: '100%',
-    maxWidth: 576,
+    maxWidth: 1180,
     height: 656,
     background: 'linear-gradient(100deg, #1ea483 0%, #7465d4 100%)',
     borderRadius: 8,
@@ -46,6 +52,7 @@ export const ProductDetails = styled('div', {
 
     p: {
         marginTop: '2.5rem',
+        marginBottom: '1rem',
         fontSize: '$md',
         lineHeight: 1.6,
         color: '$gray300',

@@ -24,12 +24,15 @@ import { useShoppingCart } from 'use-shopping-cart'
 import Link from 'next/link'
 import axios from 'axios'
 import { CartEntry } from 'use-shopping-cart/core'
+import { useMediaQuery } from 'react-responsive'
 
 interface LayoutProps {
     children: ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
+    const isMobileScreen = useMediaQuery({ query: '(max-width: 640px)' })
+
     const {
         cartCount,
         cartDetails,
@@ -76,7 +79,7 @@ export default function Layout({ children }: LayoutProps) {
                 open={isOpen}
                 onClose={handleToggleDrawer}
                 direction="right"
-                size={480}
+                size={isMobileScreen ? 370 : 480}
             >
                 <ButtonCloseDrawer onClick={handleToggleDrawer}>
                     <X size={24} />
